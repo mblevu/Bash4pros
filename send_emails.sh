@@ -1,11 +1,19 @@
 #!/bin/bash
 
-#define the email message
-subject="Hello from Brian!"
-body="Hi there this is a est i hope it works."
+# Define the website URL to check
+website="https://bursaries.gatangaconstituency.co.ke/"
 
-#loop through ist of email addresses and send to each.
-for email in "$@"; do
-echo "$body"| mailx -s "$subject" "$email"
-echo "Sent email to $email"
-done
+# Define the email message
+subject="Website status update"
+body="Hello,\n\nThe website ($website) is currently down."
+
+# Specify the email address to receive notifications
+email="brianislevu@gmail.com"
+# Check website availability
+response=$(curl -Is "$website" | head -n 1)
+
+if [[ $response != *"200 OK"* ]]; then
+    # Website is down, send email notification
+    echo -e "$body" | mailx -s "$subject" "$email"
+    echo "Sent email to $email"
+fi
