@@ -78,3 +78,6 @@ A script that counts the number of files and directories in a given directory, a
 
 **download_urls** 
 A script that takes a list of URLs as input and downloads the contents of each URL to a file with the same name as the URL.
+
+**i_jenkins**
+This Bash script checks if Jenkins is installed, then verifies Java Runtime Environment (JRE). If JRE is absent, the user chooses to install it or quit. It subsequently installs Jenkins with required dependencies, considering user choices and existing installations.

@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Check if Jenkins is already installed
+if command -v jenkins &> /dev/null; then
+    echo "Jenkins is already installed. Exiting the script."
+    exit 0
+fi
+
+# Check if JRE is installed
+if ! command -v java &> /dev/null; then
+    echo "JRE (Java Runtime Environment) is required to run Jenkins."
+    echo "Select an option:"
+    echo "(1) Install JRE"
+    echo "(2) Quit"
+    
+    read -p "Enter your choice (1/2): " choice
+
+    case $choice in
+        1)
+            # Install JRE
+            sudo apt-get update
+            sudo apt-get install default-jre
+            ;;
+        2)
+            echo "Exiting the script."
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Exiting the script."
+            exit 1
+            ;;
+    esac
+fi
+
+# Add Jenkins GPG key to keyring
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo gpg --dearmor -o /usr/share/keyrings/jenkins-keyring.gpg
+
+# Add Jenkins repository source
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.gpg] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list
+
+# Update package list
+sudo apt-get update
+
+# Install Jenkins
+sudo apt-get install jenkins
