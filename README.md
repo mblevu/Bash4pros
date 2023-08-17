@@ -7,13 +7,21 @@ Bourne again shell allows users to interact witht heir computer through a text b
 
 
 cd - change directory
+
 ls - list contents of directory
+
 mkdir - create new directory
+
 rm - remove file or directory
+
 cat - display content of file
+
 pwd - prints working directory
+
 echo - prints some output to user
+
 read - prompts user, reads and stores user input
+
 env - print environment variables
 
 
