@@ -81,3 +81,6 @@ A script that takes a list of URLs as input and downloads the contents of each U
 
 **i_jenkins**
 This Bash script checks if Jenkins is installed, then verifies Java Runtime Environment (JRE). If JRE is absent, the user chooses to install it or quit. It subsequently installs Jenkins with required dependencies, considering user choices and existing installations.
+
+**install_package**
+A simple bash script that prompts the user to choose whether to update the package list before installing a new package using sudo apt-get install
