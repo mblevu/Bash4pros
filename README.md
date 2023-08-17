@@ -40,10 +40,11 @@ else;
 chmod +x scriptname
 
 
-**environment variables;**
+# environment variables
 
 
 PATH - specifies the directories where executable programs are
+
 HOME - specifies users home directory
 
 pipes (|) allow redirection of input and output of commands
@@ -57,7 +58,7 @@ shell provides builtin commands, cd, break, continue, kill, pwd
 
 
 
-**Examples...**
+# Examples
 
 
 
